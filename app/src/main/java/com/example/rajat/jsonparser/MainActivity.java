@@ -123,7 +123,16 @@ public class MainActivity extends AppCompatActivity {
             //Important
             JSONObject jsonObject=new JSONObject(myJSON);
             people=jsonObject.getJSONArray(TAG_RESULT);
-            for ()
+            for (int i=0;i<people.length();i++)
+            {
+                JSONObject o = people.getJSONObject(i);
+                roll_nu=o.getString(TAG_ROLL);
+                name=o.getString(TAG_NAME);
+                email=o.getString(TAG_EMAIL);
+                phone=o.getString(TAG_PHONE);
+                arrayList.add("Roll: "+roll_nu+"\nName: "+name+"\nEmail: "+email+"\nPhone: "+phone+"\n");
+                adapter.notifyDataSetChanged();
+            }
         }
         catch (Exception obj)
         {
